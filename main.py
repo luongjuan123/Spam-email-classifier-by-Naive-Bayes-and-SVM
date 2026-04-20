@@ -201,11 +201,11 @@ def main():
     
     dictionary = create_dictionary(train_messages)
 
-    util.write_json('output/p06_dictionary', dictionary)
+    util.write_json('output/dictionary', dictionary)
 
     train_matrix = transform_text(train_messages, dictionary)
 
-    np.savetxt('output/p06_sample_train_matrix', train_matrix[:100,:])
+    np.savetxt('output/sample_train_matrix', train_matrix[:100,:])
 
     val_matrix = transform_text(val_messages, dictionary)
     test_matrix = transform_text(test_messages, dictionary)
@@ -214,7 +214,7 @@ def main():
 
     naive_bayes_predictions = predict_from_naive_bayes_model(naive_bayes_model, test_matrix)
 
-    np.savetxt('output/p06_naive_bayes_predictions', naive_bayes_predictions)
+    np.savetxt('output/naive_bayes_predictions', naive_bayes_predictions)
 
     naive_bayes_accuracy = np.mean(naive_bayes_predictions == test_labels)
 
@@ -224,11 +224,11 @@ def main():
 
     print('The top 5 indicative words for Naive Bayes are: ', top_5_words)
 
-    util.write_json('output/p06_top_indicative_words', top_5_words)
+    util.write_json('output/top_indicative_words', top_5_words)
 
     optimal_radius = compute_best_svm_radius(train_matrix, train_labels, val_matrix, val_labels, [0.01, 0.1, 1, 10])
 
-    util.write_json('output/p06_optimal_radius', optimal_radius)
+    util.write_json('output/optimal_radius.json', optimal_radius)
 
     print('The optimal SVM radius was {}'.format(optimal_radius))
 

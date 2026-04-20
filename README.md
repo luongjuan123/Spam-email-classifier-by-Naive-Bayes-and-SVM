@@ -57,16 +57,18 @@ We implement a **Multinomial Naive Bayes classifier**:
   * ( P(spam) )
 
 * Use **Laplace smoothing**:
-  [
-  P(w_k | y) = \frac{count(w_k, y) + 1}{\sum count(w, y) + V}
-  ]
+
+$$
+P(w_k | y) = \frac{count(w_k, y) + 1}{\sum count(w, y) + V}
+$$
 
 ### Prediction
 
 * Use **log probabilities** to avoid underflow:
-  [
-  \log P(y|x) = \sum x_i \log P(w_i|y) + \log P(y)
-  ]
+
+$$
+\log P(y|x) = \sum x_i \log P(w_i|y) + \log P(y)
+$$
 
 * Predict class with higher probability
 
@@ -88,13 +90,13 @@ We implement a custom **kernel SVM** using:
 
 ### Kernel Function
 
-[
-K(x, z) = \exp\left(-\frac{||x - z||^2}{2r^2}\right)
-]
+$$
+K(x, z) = \exp\left(-\frac{\|x - z\|^2}{2r^2}\right)
+$$
 
 Where:
 
-* ( r ) = radius (hyperparameter)
+*  $r$  = radius (hyperparameter)
 
 ---
 
@@ -114,9 +116,9 @@ Where:
 * Compute kernel between test and training data
 * Predict using:
 
-[
+$$
 \hat{y} = \text{sign}(K \cdot \alpha)
-]
+$$
 
 * Convert output to:
 

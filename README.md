@@ -77,7 +77,7 @@ We implement a **Multinomial Naive Bayes classifier**:
 
 ---
 
-## ⚙️ Support Vector Machine (SVM)
+##  Support Vector Machine (SVM)
 
 ### Model Details
 
